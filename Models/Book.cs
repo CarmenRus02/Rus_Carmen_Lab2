@@ -12,7 +12,7 @@ namespace Rus_Carmen_Lab2.Models
         public string Title { get; set; }
 
         public int AuthorsID { get; set; }
-        public Authors Authors { get; set; } = default!;
+        public Authors? Authors { get; set; }
 
         [Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
@@ -23,6 +23,8 @@ namespace Rus_Carmen_Lab2.Models
         public int? PublisherID { get; set; }
 
         public Publisher? Publisher { get; set; }
+
+        public ICollection<BookCategory>? BookCategories { get; set; }
 
     }
 }
