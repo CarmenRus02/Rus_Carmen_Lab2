@@ -10,5 +10,10 @@ public class Rus_Carmen_Lab2Context(DbContextOptions<Rus_Carmen_Lab2Context> opt
 
     public DbSet<Rus_Carmen_Lab2.Models.Category> Category { get; set; } = default!;
 
+    public DbSet<Rus_Carmen_Lab2.Models.Member> Member { get; set; } = default!;
+
+    public DbSet<Rus_Carmen_Lab2.Models.Borrowing> Borrowing { get; set; } = default!;
+
+
 
 }

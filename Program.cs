@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Rus_Carmen_Lab2.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Rus_Carmen_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Rus_Carmen_Lab2Context' not found.");
 
 builder.Services.AddDbContext<Rus_Carmen_Lab2Context>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<LibraryIdentityContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<LibraryIdentityContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
